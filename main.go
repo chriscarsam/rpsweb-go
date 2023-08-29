@@ -1,17 +1,24 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
+	"rpsweb/handlers"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Hello World")
-	})
+	// Create router
+	router := http.NewServeMux()
+
+	// Configure routes
+	router.HandleFunc("/", handlers.Index)
+	router.HandleFunc("/new", handlers.NewGame)
+	router.HandleFunc("/game", handlers.Game)
+	router.HandleFunc("/play", handlers.Play)
+	router.HandleFunc("/about", handlers.About)
 
 	port := ":8080"
-	fmt.Printf("Sevidor listening in http://localhost%s\n", port)
-	http.ListenAndServe(port, nil)
+	log.Printf("Sevidor listening in http://localhost%s\n", port)
+	log.Fatal(http.ListenAndServe(port, router))
 
 }
