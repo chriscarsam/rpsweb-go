@@ -2,11 +2,22 @@ package handlers
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Home page")
+	tpl, err := template.ParseFiles("templates/index.html")
+	if err != nil {
+		http.Error(w, "Error when analyzing templates", http.StatusInternalServerError)
+		return
+	}
+
+	err = tpl.Execute(w, nil)
+	if err != nil {
+		http.Error(w, "Error rendering templates", http.StatusInternalServerError)
+		return
+	}
 }
 
 func NewGame(w http.ResponseWriter, r *http.Request) {
