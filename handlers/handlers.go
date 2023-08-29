@@ -13,7 +13,15 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = tpl.Execute(w, nil)
+	data := struct {
+		Title   string
+		Message string
+	}{
+		Title:   "Home page",
+		Message: "¡Welcome to rock, paper, scissors!",
+	}
+
+	err = tpl.Execute(w, data)
 	if err != nil {
 		http.Error(w, "Error rendering templates", http.StatusInternalServerError)
 		return
