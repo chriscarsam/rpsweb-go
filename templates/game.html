@@ -1,0 +1,63 @@
+{{ template "base" . }}
+
+{{ define "title" }} RPS web - play {{ end }}
+
+{{ define "content" }}
+
+   <section>
+        <div class="container">
+            <div class="row">
+                <div class="col py-5 text-center">
+                    <h2>Charly Test</h2>
+                    <p class="fw-bold">0</p>
+                    <div class="d-grid gap-2 card p-3">
+                        <button class="btn btn-outline-primary">
+                            <img src="../static/img/hand_rock.png" alt="hand_rock" width="50" class="img-fluid">
+                            <span class="fw-bold">Rock</span>
+                        </button>
+                   
+                        <button class="btn btn-outline-primary">
+                            <img src="../static/img/hand_paper.png" alt="hand_paper" width="50" class="img-fluid">
+                            <span class="fw-bold">Paper</span>
+
+                        </button>
+                  
+                        <button class="btn btn-outline-primary">
+                            <img src="../static/img/hand_scissors.png" alt="hand_scissors" width="50" class="img-fluid">
+                            <span class="fw-bold">Scissors</span>
+
+                        </button>
+                    </div>
+                </div>
+                <div class="col py-5 text-center">
+                    <h2>Computer</h2>
+                    <p class="fw-bold">0</p>
+                    <div class="card p-3">
+                        <div class="d-flex justify-content-center">
+                            <img src="../static/img/reload_icon.png" alt="reload_icon" width="200" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+   </section>
+    
+   <section>
+    <div class="container">
+        <div class="row">
+            <h2>Results</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">The player chose ROCK</li>
+                <li class="list-group-item">Computer chose PAPER</li>
+                <li class="list-group-item text-danger">The computer wins!</li>
+                <li class="list-group-item text-primary">This is not your day.</li>
+            </ul>
+        </div>
+        <div class="row text-center">
+            <div class="col py-3">
+                <a href="/new" class="btn btn-primary btn-lg">New game</a>
+            </div>
+        </div>
+    </div>
+   </section>
+{{ end }}
