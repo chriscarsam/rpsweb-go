@@ -4,6 +4,20 @@
 
 {{ define "content" }}
 
-    <h1>New game page</h1>
+    <section>
+        <div class="container">
+            <div class="row">
+                <h2 class="text-center py-4">Enter your name</h2>
+                <form action="">
+                    <div class="mb-3">
+                        <input type="text" placeholder="Enter your name" name="name" id="name" class="form-control">
+                    </div>
+                    <div class="d-grid gap-2 py-4">
+                        <input type="submit" value="Start playing" class="btn btn-primary btn-lg">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
     
 {{ end }}
